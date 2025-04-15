@@ -14,15 +14,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
+from django.conf import settings
 from . import views
 
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('index/',include('Main_Page.urls')),
-    path('recommend-crop/',include('crop_recommend.urls')),
-    path('recommend-fertilizer/',include('fertilizer_recommend.urls')),
-    path('rainfall/',include('rainfall.urls')),
-    path('',views.hello),
+    path("admin/", admin.site.urls),
+    path("index/", include("Main_Page.urls")),
+    path("recommend-crop/", include("crop_recommend.urls")),
+    path("recommend-fertilizer/", include("fertilizer_recommend.urls")),
+    path("rainfall/", include("rainfall.urls")),
+    path("", views.hello),
+    path("chatbot/", include("chatbot.urls"), name="chatbot"),
+    path("crop-yield/", include("crop_yeild.urls"), name="crop_yeild"),
 ]
