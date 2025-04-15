@@ -1,64 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agriculture Portal</title>
+    <title>Agri Vision</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("{% static 'images/fp1.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="name">
-        <div class="logo-container">
-            <!-- Logo (Example) -->
-            <img src="{% static 'images/abc-modified.png' %}" alt="Agri Vision Logo" class="logo">
-            <h2>AGRI VISION.</h2>
+    <header>
+        <nav>
+            <div class="logo">AgriVision</div>
+            <ul>
+                <li><a href="">Homepage</a></li>
+                <li><a href="about/">About Us</a></li>
+                <li><a href="service/">Our Services</a></li>
+                <li><a href="contact/">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section class="hero">
+        <h1>Your Guide to Modern Agriculture</h1>
+        <p>Explore the future of agriculture with us. Discover cutting-edge insights, practical tips, and the latest
+            trends in modern farming.</p>
+        <div class="cta">
+            <a href="about/">Getting Started</a>
+            <a href="service/">Our Services</a>
         </div>
-        <!-- Contact Us Button -->
-        <a href="contact/" class="contact-button">Contact Us</a>
-    </div>
+    </section>
 
-    <nav>
-        <a href="/recommend-crop/">Crop Recommendation</a>
-        <a href="/recommend-fertilizer/">Fertilizer Recommendation</a>
-        <a href="/rainfall/">Rainfall Prediction</a>
-    </nav>
+    <!-- Chatbot Icon -->
+    <div id="chatbot-icon" onclick="toggleChat()">💬</div>
 
-    <div class="hero">
-        <h1>Agriculture at Your Fingertips</h1>
-        <p>Empowering farmers with advanced tools for better crop management and yield prediction.</p>
-    </div>
-
-    <div class="info-section">
-        <h2>About Our Portal</h2>
-        <p>
-            The Agriculture Portal is your one-stop solution for improving farming productivity. 
-            From predicting the best crop to plant based on environmental factors to recommending the most effective fertilizers, 
-            we offer cutting-edge tools designed to simplify decision-making for farmers. 
-            Our portal also provides rainfall and crop yield predictions, along with a Disease Detection for real-time assistance.
-        </p>
-    </div>
-
-    <div class="services-section">
-        <h2>Our Services</h2>
-        <div class="services">
-            <div class="service">
-                <h3><a href="/recommend-crop/">Crop Recommendation</a></h3>
-                <p>Get personalized crop suggestions based on soil and environmental conditions.</p>
-            </div>
-            <div class="service">
-                <h3><a href="/recommend-fertilizer/">Fertilizer Recommendation</a></h3>
-                <p>Optimize your soil with tailored fertilizer suggestions for better productivity.</p>
-            </div>
-            <div class="service">
-                <h3><a href="/rainfall/">Rainfall Prediction</a></h3>
-                <p>Plan your farming activities with accurate and up-to-date weather predictions.</p>
-            </div>
+    <!-- Chatbot Window -->
+    <div id="chatbot-container">
+        <div id="chatbot-header">
+            <span>AgriBot</span>
+            <button onclick="toggleChat()">✖</button>
+        </div>
+        <div id="chatbox"></div>
+        <div class="end">
+            <input type="text" id="userInput" placeholder="Ask something..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Send</button>
         </div>
     </div>
-
-    <footer>
-        &copy; 2024 Agri Vision. All rights reserved.
+    <footer class="bg-gray-900 text-gray-400 text-center py-4">
+        <p>&copy; 2025 <span class="text-green-400 font-semibold">AgriVision</span>. All rights reserved.</p>
     </footer>
+
+
+
+    <script src="{% static 'js/index.js' %}"></script>
+
 </body>
+
 </html>

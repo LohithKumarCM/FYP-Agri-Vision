@@ -1,10 +1,18 @@
-from django.shortcuts import render
-from django.http import JsonResponse
-
+from django.contrib.auth import login, authenticate
+from django.shortcuts import render, redirect
 
 
 def index(request):
-    return render(request, 'Main_Page/index.html')
+    return render(request, "Main_Page/index.html")
+
 
 def contact(request):
-    return render(request, 'Main_Page/contact.html')
+    return render(request, "Main_Page/contact.html")
+
+
+def service(request):
+    return render(request, "Main_Page/ourservices.html")
+
+
+def about(request):
+    return render(request, "Main_Page/about.html")
