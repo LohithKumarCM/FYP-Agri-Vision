@@ -12,13 +12,13 @@ document.getElementById('submitButton').addEventListener('click', function () {
         },
         body: formData
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log("Response Data:", data);
-        resultDiv.textContent = `Recommended Fertilizer: ${data.recommended_fertilizer}`;
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        resultDiv.textContent = 'An error occurred. Please try again.';
-    });
+        .then(response => response.json())
+        .then(data => {
+            console.log("Response Data:", data);
+            resultDiv.textContent = `Recommended Fertilizer: ${data.recommended_fertilizer}`;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            resultDiv.textContent = 'An error occurred. Please try again.';
+        });
 });
